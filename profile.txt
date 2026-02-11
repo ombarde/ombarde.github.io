@@ -1,0 +1,431 @@
+
+Contact
+Nagpur
+8766721568 (Mobile)
+bardeom6702@gmail.com
+https://www.linkedin.com/in/om-barde-622115171/ (LinkedIn)
+Top Skills
+DGX Cloud Operations
+Multi-GPU Scaling
+AI Infrastructure Management
+Languages
+German (Elementary)
+Marathi (Native or Bilingual)
+Hindi (Professional Working)
+English (Professional Working)
+Certifications
+Certified Web Designer Associate
+(CWDSA)
+Docker Essentials: A Developer
+Introduction
+Python Data Science Toolbox (Part
+2)
+Graphic Design Foundations: Layout
+and Composition
+Advanced Prompt Engineering
+Techniques
+Publications
+SatelliteChangeNet: Deep Learning
+approach for Detection & Prediction
+Om Barde
+AI Developer | Real-Time Video Analytics & GPU-Accelerated AI
+Systems | NVIDIA Certified
+New Delhi, Delhi, India
+Summary
+I’m Om Barde, an AI Developer with hands-on experience in realtime video analytics, GPU-accelerated AI systems, and large-scale
+AI infrastructure benchmarking. I specialize in building productiongrade AI solutions that operate reliably under real-world constraints
+such as low latency, high throughput, and multi-camera scalability.
+I hold a B.Tech in Artificial Intelligence and have earned multiple
+NVIDIA certifications across AI, GPU computing, and infrastructure
+domains. My recent work focuses on designing GStreamer-based
+video pipelines, training and optimizing computer vision models, and
+deploying CUDA-enabled inference systems for traffic monitoring
+and logistics automation.
+I have practical experience across the full AI lifecycle — from dataset
+preparation and model training to GPU-accelerated inference,
+system integration, and performance tuning. I’ve also worked
+on MLPerf Training and Inference benchmarking, validating AI
+workloads on NVIDIA H200 and L4 GPUs under strict acceptance
+criteria.
+Previously, I contributed to NLP systems (BERT-based sentiment
+analysis), research-driven computer vision projects, and scalable AI
+deployments, collaborating with organizations such as Unifins IT Hub
+and the University of Texas at Austin.
+Core Focus Areas
+-Real-time Video Analytics & Computer Vision
+-GStreamer Pipelines & Multi-Stream Video Processing
+-GPU-Accelerated AI (CUDA, H200, L4, A5000)
+-Model Training, Fine-Tuning & Optimization
+-MLPerf Benchmarking & AI Infrastructure Validation
+Page 1 of 5
+I’m deeply interested in roles at the intersection of AI systems, video
+intelligence, and GPU infrastructure, and I enjoy collaborating with
+teams that build high-impact, real-world AI platforms.
+Let’s connect if you’re working on AI infrastructure, video analytics,
+GPU computing, or large-scale AI systems
+#ArtificialIntelligence #VideoAnalytics #ComputerVision
+#GPUComputing #GStreamer #CUDA #MLPerf #NVIDIA
+#AIInfrastructure #MachineLearning #DataScience #DeepLearning
+#Python #AIForGood #TechInnovation #DataDriven
+#ProblemSolving #TeamLeadership #AIResearch #CloudComputing
+#NLP #TechForFuture
+Experience
+CCS COMPUTERS PVT. LTD.
+AI Developer
+July 2025 - Present (7 months)
+New Delhi, Delhi, India
+Working on real-time video analytics, GPU-accelerated AI systems, and
+AI infrastructure benchmarking for production and acceptance-ready
+deployments.
+Project: GPU Benchmarking & Performance EvaluationContributed to the design, execution, and validation of large-scale GPU
+benchmarking for AI compute and inference platforms.
+Executed MLPerf Training and Inference benchmarks across computer vision,
+NLP, speech recognition, recommendation systems, and LLM workloads.
+Benchmarked single-node and multi-node systems, validating throughput,
+latency, and scalability under high-concurrency conditions.
+Analyzed performance across multiple precision modes and assessed GPU
+utilization, memory bandwidth, and system efficiency.
+Documented benchmark methodology and results as part of formal
+acceptance testing and deployment readiness.
+Project: Speed Detection & Monitoring SystemPage 2 of 5
+Built a real-time vehicle speed detection system using video analytics and
+GPU-accelerated AI.
+Designed and trained computer vision models for vehicle detection and
+tracking using traffic surveillance data.
+Implemented low-latency video processing pipelines, object tracking, camera
+calibration, and speed estimation logic.
+Optimized trained models for real-time inference and ensured system stability
+for long-running deployments.
+Project: Dock Management System (DMS)-
+Developed an AI-driven dock management solution to monitor vehicle
+movement, dock occupancy, and turnaround time.
+Designed and trained vision models for vehicle detection and classification in
+complex dock environments.
+Implemented zone-based tracking and event-driven analytics for utilization,
+wait time, and congestion detection.
+Integrated AI outputs with backend systems and collaborated with operations
+teams to align solutions with real-world workflows.
+Unifins IT Hub Private Limited
+Data Analyst
+June 2024 - July 2025 (1 year 2 months)
+Nagpur, Maharashtra, India
+Project: Multilingual Sentiment Classifier using BERT
+Designed and deployed a multilingual sentiment analysis engine using BERT,
+achieving over 90% accuracy across English, Hindi, and Marathi feedback.
+Integrated model into internal CRM and analytics platforms via RESTful APIs
+using GCP Cloud Run, enabling real-time sentiment classification at scale.
+Built modular ETL pipelines in Python (Pandas, spaCy) to process and clean
+structured/unstructured feedback data; stored results in BigQuery and Google
+Sheets.
+Used RAKE to extract dominant keywords and recurring complaint patterns
+from user feedback to support trend analysis.
+Delivered AI-powered features such as feedback categorization, sentiment
+tagging, and priority routing to enhance support response efficiency.
+Led a 3-member team and collaborated with frontend/backend developers to
+ensure smooth deployment and system integration.
+Project: Unifins Wealth Management- Model Research
+Page 3 of 5
+Led a comparative market study of platforms like AssetPlus, Groww, and
+Zerodha Coin to design a scalable, SEBI-compliant mutual fund distribution
+model with insights on commission structures, AMC partnerships, and client
+onboarding workflows.
+Mapped onboarding, KYC/CKYC, and transaction workflows using Lucidchart,
+and documented standard operating procedures using Notion, ensuring
+regulatory alignment and process clarity.
+Designed internal operations by defining role hierarchies, team responsibilities
+(RM, Support, Compliance), and built a draft SOP manual to streamline
+execution.
+Created a lightweight CRM using Google Sheets and Google Forms to track
+client data and fund performance, supporting data centralization and informed
+decision-making.
+Developed a go-to-market strategy including investor education modules and
+onboarding kits for distributors, enhancing outreach and conversion efficiency.
+IEEE SB GHRIETN
+Vice Chair
+April 2023 - April 2024 (1 year 1 month)
+Nagpur, Maharashtra, India
+Oversee some of the subcommittees, and manage some of the activities
+throughout the semester.
+The University of Texas at Austin
+Research And Development Intern
+July 2023 - December 2023 (6 months)
+Austin, Texas, United States
+Worked on the estimation of object dynamics from video sequences, applying
+deep learning models with PyTorch and OpenCV.
+Collaborated with the professor to address the problem of estimating object
+dynamics and motion patterns from unstructured video data, relevant to
+applications like surveillance, autonomous systems, and robotics. Gained
+exposure to distributed AI research practices and global collaboration.
+Developed and trained deep learning models using PyTorch and OpenCV to
+analyze video sequences and predict temporal object movement.
+Built preprocessing pipelines to extract and annotate frames, applied CNNs
+for spatial features, and integrated RNNs (e.g., LSTM) to capture sequential
+dependencies for motion prediction.
+Conducted iterative optimization and performance tuning to improve accuracy
+and temporal coherence of tracking.
+Page 4 of 5
+The Sparks Foundation
+AI/ML INTERN
+February 2023 - March 2023 (2 months)
+Built supervised learning models using Scikit-learn, including classification and
+regression with real-world datasets.
+Applied visualization and statistical analysis for feature exploration and model
+evaluation.
+techkrow
+AI Intern
+November 2021 - December 2021 (2 months)
+Assisted in the design and deployment of basic ML systems; implemented
+preprocessing pipelines and predictive models.
+TechnoGhat
+Student Intern
+November 2020 - March 2021 (5 months)
+Hinganghat, Maharashtra, India
+Performed market analysis and researched latest trends.
+Helped with planning and hosting of marketing events.
+Designed and presented social media campaign ideas.
+Education
+G H Raisoni Institute of Engineering and Technology
+(GHRIETN) ,Nagpur
+Bachelor of Technology - BTech, Artificial Intelligence · (2020 - 2024)
+Alphonsa Se. Sec. School, Wardha
+H.S.C. (12 Std)   · (July 2018 - March 2020)
+St. Johns High School, CBSE
+S.S.C. (10 Std)  
+Page 5 o 5 
+
+below is more details about my projects and skills and all cerifications....
+
+use below things
+
+NVIDIA logo
+Compute Technical Curriculum
+Compute Technical Curriculum
+NVIDIANVIDIA
+Issued Nov 2025Issued Nov 2025
+Skills: CUDA Programming · Parallel Computing Fundamentals · Performance Optimization · NVIDIA SDKs & Tools
+Skills: CUDA Programming · Parallel Computing Fundamentals · Performance Optimization · NVIDIA SDKs & Tools
+
+Compute TechnicalCompute Technical
+NVIDIA logo
+NVIDIA AI Technical Curriculum
+NVIDIA AI Technical Curriculum
+NVIDIANVIDIA
+Issued Nov 2025Issued Nov 2025
+Skills: AI Model Development · GPU-Accelerated Training · End-to-End AI Workflow
+Skills: AI Model Development · GPU-Accelerated Training · End-to-End AI Workflow
+
+AI Technical CurriculumAI Technical Curriculum
+NVIDIA logo
+NVIDIA DGX Technical Curriculum
+NVIDIA DGX Technical Curriculum
+NVIDIANVIDIA
+Issued Nov 2025Issued Nov 2025
+Skills: DGX Cloud Operations · Multi-GPU Scaling · AI Infrastructure Management · GPU Server Optimization
+Skills: DGX Cloud Operations · Multi-GPU Scaling · AI Infrastructure Management · GPU Server Optimization
+
+InstallationInstallation
+
+CloudCloud
+
+TechnicalTechnical
+NVIDIA logo
+Networking Technical Curriculum
+Networking Technical Curriculum
+NVIDIANVIDIA
+Issued Nov 2025Issued Nov 2025
+Skills: High-Performance Networking · InfiniBand & Ethernet Basics · Low-Latency Data Transfer · Network Optimization for AI
+Skills: High-Performance Networking · InfiniBand & Ethernet Basics · Low-Latency Data Transfer · Network Optimization for AI
+
+Networking Technical CurriculumNetworking Technical Curriculum
+LinkedIn logo
+Advanced Prompt Engineering Techniques
+Advanced Prompt Engineering Techniques
+LinkedInLinkedIn
+Issued Jul 2025Issued Jul 2025
+Show credential
+Skills: Prompt Engineering
+Skills: Prompt Engineering
+GitHub logo
+Career Essentials in GitHub Copilot Professional Certificate
+Career Essentials in GitHub Copilot Professional Certificate
+GitHubGitHub
+Issued Jul 2025Issued Jul 2025
+Show credential
+Skills: AI Software Development · Version Control · Code Refactoring · AI Productivity
+Skills: AI Software Development · Version Control · Code Refactoring · AI Productivity
+IBM logo
+Docker Essentials: A Developer Introduction
+Docker Essentials: A Developer Introduction
+IBMIBM
+Issued Jul 2025Issued Jul 2025
+Credential ID course-v1:IBMDeveloperSkillsNetwork CO0101EN v1Credential ID course-v1:IBMDeveloperSkillsNetwork CO0101EN v1
+Show credential
+NVIDIA logo
+Accelerating End-to-End Data Science Workflows
+Accelerating End-to-End Data Science Workflows
+NVIDIANVIDIA
+Issued Apr 2025Issued Apr 2025
+Credential ID TRECjIuITZOpt565qKLtBgCredential ID TRECjIuITZOpt565qKLtBg
+Show credential
+NVIDIA logo
+Develop, Customize, and Publish in Omniverse With Extensions
+Develop, Customize, and Publish in Omniverse With Extensions
+NVIDIANVIDIA
+Issued Apr 2025Issued Apr 2025
+Credential ID Lr1_PJ8VSFu4MUHH-23M6ACredential ID Lr1_PJ8VSFu4MUHH-23M6A
+Show credential
+NVIDIA logo
+Disaster Risk Monitoring Using Satellite Imagery
+Disaster Risk Monitoring Using Satellite Imagery
+NVIDIANVIDIA
+Issued Apr 2025Issued Apr 2025
+Credential ID TPtajwPPQ9qVBOkFJ5pVhgCredential ID TPtajwPPQ9qVBOkFJ5pVhg
+Show credential
+NVIDIA logo
+Fundamentals of Deep Learning
+Fundamentals of Deep Learning
+NVIDIANVIDIA
+Issued Apr 2025Issued Apr 2025
+Credential ID 1tO0Ys3ITkGJkXM3sgBKrQCredential ID 1tO0Ys3ITkGJkXM3sgBKrQ
+Show credential
+NVIDIA logo
+Getting Started with AI on Jetson Nano
+Getting Started with AI on Jetson Nano
+NVIDIANVIDIA
+Issued Apr 2025Issued Apr 2025
+Credential ID _SMMCkJuTvGTGRZ4HPswogCredential ID _SMMCkJuTvGTGRZ4HPswog
+Show credential
+Google Digital Academy (Skillshop) logo
+Google Analytics Certification
+Google Analytics Certification
+Google Digital Academy (Skillshop)Google Digital Academy (Skillshop)
+Issued Apr 2025 · Expires Apr 2026Issued Apr 2025 · Expires Apr 2026
+Credential ID 139072240Credential ID 139072240
+Show credential
+Udemy logo
+ Google Cloud Professional Cloud Architect
+ Google Cloud Professional Cloud Architect
+UdemyUdemy
+Issued Mar 2025Issued Mar 2025
+Credential ID Certificate no: UC-291d3ecc-80c8-4137-9f24-0712442661e6Credential ID Certificate no: UC-291d3ecc-80c8-4137-9f24-0712442661e6
+Skills: Cloud Architecture & Solution Design · Compute Engine · Infrastructure Management on GCP · Cloud Storage · Cloud Monitoring & Logging · Cost Optimization & Resource Planning
+Skills: Cloud Architecture & Solution Design · Compute Engine · Infrastructure Management on GCP · Cloud Storage · Cloud Monitoring & Logging · Cost Optimization & Resource Planning
+
+Anyword AI.jpgAnyword AI.jpg
+NPTEL logo
+Entrepreneurship
+Entrepreneurship
+NPTELNPTEL
+Issued Nov 2023Issued Nov 2023
+Credential ID NPTEL23MG74S842800943Credential ID NPTEL23MG74S842800943
+Show credential
+DataCamp logo
+Python Data Science Toolbox (Part 1)
+Python Data Science Toolbox (Part 1)
+DataCampDataCamp
+Issued Sep 2021Issued Sep 2021
+Credential ID #20,897,164Credential ID #20,897,164
+Show credential
+DataCamp logo
+Python Data Science Toolbox (Part 2)
+Python Data Science Toolbox (Part 2)
+DataCampDataCamp
+Issued Sep 2021Issued Sep 2021
+Credential ID #20,899,517Credential ID #20,899,517
+Show credential
+Skills: Computer Vision
+Skills: Computer Vision
+LinkedIn logo
+Graphic Design Foundations: Layout and Composition
+Graphic Design Foundations: Layout and Composition
+LinkedInLinkedIn
+Issued Aug 2021Issued Aug 2021
+Show credential
+Skills: Graphic Design
+Skills: Graphic Design
+Maharashtra Knowledge Corporation Limited (MKCL) logo
+Certified Web Designer Associate (CWDSA)
+Certified Web Designer Associate (CWDSA)
+Maharashtra Knowledge Corporation Limited (MKCL)Maharashtra Knowledge Corporation Limited (MKCL)
+Issued May 2017
+
+
+
+SKILLS
+Programming Languages
+•	Python, C++, C
+•	SQL, NoSQL, R
+AI / Machine Learning
+•	Machine Learning, Deep Learning
+•	Computer Vision (Detection, Tracking, Video Analytics)
+•	Transformers, LLMs (BERT – training & inference)
+•	Time-Series & Event-Based Analytics
+•	Model Training, Fine-Tuning & Optimization
+•	Data Preprocessing & Dataset Curation
+Video Analytics & Streaming
+•	GStreamer (RTSP pipelines, multi-stream processing, buffering & batching)
+•	Real-time Video Processing Pipelines
+•	OpenCV
+GPU, Acceleration & Benchmarking
+•	CUDA Programming (Foundations)
+•	GPU-Accelerated Training & Inference
+•	Multi-GPU & Multi-Node Scaling
+•	Precision Optimization (FP32, FP16, FP8, INT8)
+•	GPU Performance Profiling & Optimization
+•	MLPerf Training & Inference Benchmarking
+Frameworks & Libraries
+•	PyTorch, TensorFlow
+•	Scikit-learn
+•	Hugging Face Transformers
+•	Pandas, NumPy, Matplotlib
+Software Development
+•	Object-Oriented Programming (OOP)
+•	Design Patterns, SDLC
+•	Data Structures & Algorithms
+•	REST API Development & Integration
+•	Debugging & Performance Analysis (GDB, Valgrind)
+•	Build Systems (CMake, Makefiles)
+Backend, Cloud & DevOps
+•	Linux (Ubuntu, RHEL)
+•	Docker (Fundamentals)
+•	Google Cloud Platform (GCP)
+•	Cloud Deployment & API Integration
+•	CI/CD (Basic)
+•	Version Control (Git)
+AI Infrastructure & Systems
+•	NVIDIA GPUs (H200, L4, A5000)
+•	GPU Server & AI Infrastructure Optimization
+•	High-Throughput AI Systems
+•	Acceptance Testing & Performance Reporting
+Professional & Research Skills
+•	Agile Development
+•	System Design & Optimization
+•	Performance Tuning
+•	Technical Documentation & Reporting
+•	Cross-Team Collaboration
+•	Research Writing & Publication
+•	Programming Languages:
+Python, C++, C, SQL, NoSQL, R
+•	AI / Machine Learning:
+Machine Learning, Deep Learning, Computer Vision (Detection, Tracking, Video Analytics), Transformers, LLMs (BERT – training & inference), Time-Series & Event-Based Analytics, Model Training, Fine-Tuning & Optimization, Data Preprocessing & Dataset Curation
+•	Video Analytics & Streaming:
+GStreamer (RTSP pipelines, multi-stream processing, buffering & batching), Real-time Video Processing Pipelines, OpenCV
+•	GPU, Acceleration & Benchmarking:
+CUDA Programming (Foundations), GPU-Accelerated Training & Inference, Multi-GPU & Multi-Node Scaling, Precision Optimization (FP32, FP16, FP8, INT8), GPU Performance Profiling & Optimization, MLPerf Training & Inference Benchmarking
+•	Frameworks & Libraries:
+PyTorch, TensorFlow, Scikit-learn, Hugging Face Transformers, Pandas, NumPy, Matplotlib
+•	Software Development:
+Object-Oriented Programming (OOP), Design Patterns, SDLC, Data Structures & Algorithms, REST API Development & Integration, Debugging & Performance Analysis (GDB, Valgrind), Build Systems (CMake, Makefiles)
+•	Backend, Cloud & DevOps:
+Linux (Ubuntu, RHEL), Docker (Fundamentals), Google Cloud Platform (GCP), Cloud Deployment & API Integration, CI/CD (Basic), Version Control (Git)
+•	AI Infrastructure & Systems:
+NVIDIA GPUs (H200, L4, A5000), GPU Server & AI Infrastructure Optimization, High-Throughput AI Systems, Acceptance Testing & Performance Reporting
+•	Professional & Research Skills:
+Agile Development, System Design & Optimization, Performance Tuning, Technical Documentation & Reporting, Cross-Team Collaboration, Research Writing & Publication
+
+
+
+
+
+
+

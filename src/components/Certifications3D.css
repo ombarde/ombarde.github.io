@@ -1,0 +1,311 @@
+.certifications-3d-section {
+  padding: 3rem 2rem 4rem;
+}
+
+.fps-counter {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  color: var(--nvidia-green);
+  margin: 2rem 0;
+  animation: pulse 0.5s ease-in-out infinite;
+}
+
+.cert-section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.core-certifications {
+  margin-bottom: 3rem;
+}
+
+.core-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.additional-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.cert-key-3d {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.cert-key-3d.core {
+  min-width: 0;
+}
+
+.cert-key-3d.additional {
+  min-width: 0;
+}
+
+.key-hologram {
+  position: relative;
+  background: var(--card-bg);
+  border: 2px solid var(--nvidia-green);
+  border-radius: 12px;
+  padding: 2rem;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+}
+
+.cert-key-3d.additional .key-hologram {
+  padding: 1.25rem;
+  border-width: 1px;
+  border-radius: 8px;
+}
+
+.key-hologram:hover {
+  box-shadow: 0 0 40px rgba(118, 185, 0, 0.5);
+  transform: translateY(-8px);
+}
+
+.cert-key-3d.additional .key-hologram:hover {
+  box-shadow: 0 0 20px rgba(118, 185, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+.hologram-glow {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(118, 185, 0, 0.2) 0%, transparent 70%);
+  animation: rotate-glow 4s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotate-glow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.key-content {
+  position: relative;
+  z-index: 2;
+}
+
+.key-issuer {
+  font-size: 0.9rem;
+  color: var(--nvidia-green);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cert-key-3d.additional .key-issuer {
+  font-size: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.key-name {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.cert-key-3d.additional .key-name {
+  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.key-date {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.cert-key-3d.additional .key-date {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+
+.key-hash {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1rem;
+  background: var(--bg-dark);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+.hash-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.hash-value {
+  font-size: 0.85rem;
+  color: var(--nvidia-green);
+  font-family: 'JetBrains Mono', monospace;
+  word-break: break-all;
+}
+
+.key-emission {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.emission-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--nvidia-green);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: emit 2s ease-in-out infinite;
+}
+
+@keyframes emit {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(calc(100px * cos(var(--angle)))) translateY(calc(100px * sin(var(--angle)))) scale(0);
+  }
+}
+
+.trust-chain {
+  margin-top: 2.5rem;
+  text-align: center;
+  padding: 1.25rem 2rem;
+  background: var(--card-bg);
+  border: 2px solid var(--nvidia-green);
+  border-radius: 12px;
+  position: relative;
+}
+
+.chain-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.chain-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--nvidia-green) 20%, var(--nvidia-green) 80%, transparent);
+  margin: 1rem 0;
+  position: relative;
+}
+
+.chain-line::before,
+.chain-line::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--nvidia-green);
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.chain-line::before {
+  left: 20%;
+}
+
+.chain-line::after {
+  right: 20%;
+}
+
+.chain-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  color: var(--nvidia-green);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .core-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .additional-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .certifications-3d-section {
+    padding: 3rem 1rem 3rem;
+  }
+
+  .core-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .additional-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .cert-key-3d.additional .key-hologram {
+    padding: 1rem;
+  }
+
+  .cert-key-3d.additional .key-name {
+    font-size: 0.85rem;
+  }
+
+  .fps-counter {
+    font-size: 1.2rem;
+  }
+
+  .trust-chain {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .certifications-3d-section {
+    padding: 2.5rem 1rem 2.5rem;
+  }
+
+  .additional-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-section-label {
+    font-size: 0.9rem;
+  }
+
+  .key-hologram {
+    padding: 1.5rem;
+  }
+
+  .cert-key-3d.additional .key-hologram {
+    padding: 0.9rem;
+  }
+}

@@ -1,0 +1,145 @@
+.experience-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  background: var(--bg-dark);
+}
+
+.logs-container {
+  max-width: 1000px;
+  margin: 4rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.log-entry {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  position: relative;
+}
+
+.log-entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--nvidia-green);
+  border-radius: 12px 0 0 12px;
+}
+
+.log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.log-type {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.log-type.info {
+  color: var(--nvidia-green);
+}
+
+.log-type.success {
+  color: #4ade80;
+}
+
+.log-type.warn {
+  color: #fbbf24;
+}
+
+.log-type.error {
+  color: #ef4444;
+}
+
+.log-timestamp {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.log-company {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.log-role {
+  font-size: 1.1rem;
+  color: var(--nvidia-green);
+  margin-bottom: 0.25rem;
+}
+
+.log-location {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.log-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.log-line {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border-color);
+}
+
+.log-line.info {
+  color: var(--text-secondary);
+  border-left-color: var(--nvidia-green);
+}
+
+.log-line.success {
+  color: #4ade80;
+  border-left-color: #4ade80;
+}
+
+.log-line.warn {
+  color: #fbbf24;
+  border-left-color: #fbbf24;
+}
+
+.log-line.error {
+  color: #ef4444;
+  border-left-color: #ef4444;
+}
+
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 4rem 1rem;
+  }
+  
+  .log-entry {
+    padding: 1.5rem;
+  }
+  
+  .log-company {
+    font-size: 1.1rem;
+  }
+  
+  .log-role {
+    font-size: 1rem;
+  }
+  
+  .log-line {
+    font-size: 0.85rem;
+  }
+}

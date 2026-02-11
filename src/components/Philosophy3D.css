@@ -1,0 +1,117 @@
+.philosophy-3d-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-darker);
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy-content-3d {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy-text {
+  margin-top: 4rem;
+}
+
+.quote-line {
+  font-size: 2rem;
+  color: var(--text-primary);
+  line-height: 2;
+  font-weight: 300;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.philosophy-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--nvidia-green);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.breathing-indicator {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breath-circle {
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--nvidia-green);
+  border-radius: 50%;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .philosophy-3d-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .quote-line {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .philosophy-3d-section {
+    padding: 4rem 1rem;
+    min-height: auto;
+  }
+  
+  .quote-line {
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .breath-circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .philosophy-text {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .philosophy-3d-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .quote-line {
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  .breath-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .philosophy-text {
+    margin-top: 2.5rem;
+  }
+}

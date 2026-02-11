@@ -1,0 +1,146 @@
+.certifications-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+}
+
+.cert-intro {
+  text-align: center;
+  margin: 3rem 0 4rem;
+}
+
+.cert-quote {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.certifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.badge-section-title {
+  font-size: 1.5rem;
+  color: var(--nvidia-green);
+  margin-bottom: 2rem;
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.cert-badge {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cert-badge:hover {
+  border-color: var(--nvidia-green);
+  box-shadow: 0 8px 24px rgba(118, 185, 0, 0.2);
+}
+
+.cert-badge.nvidia {
+  border-color: var(--nvidia-green);
+  background: rgba(118, 185, 0, 0.05);
+}
+
+.badge-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--nvidia-green), transparent, var(--nvidia-green));
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.cert-badge.nvidia:hover .badge-glow {
+  opacity: 0.3;
+}
+
+.badge-content {
+  position: relative;
+  z-index: 1;
+}
+
+.badge-issuer {
+  font-size: 0.9rem;
+  color: var(--nvidia-green);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.badge-name {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.badge-date {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.badge-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  padding: 0.25rem 0.5rem;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.cert-badge.nvidia .skill-tag {
+  border-color: var(--nvidia-green);
+  color: var(--nvidia-green);
+}
+
+.badge-check {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--nvidia-green);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .certifications-section {
+    padding: 4rem 1rem;
+  }
+  
+  .cert-quote {
+    font-size: 1.2rem;
+  }
+  
+  .badges-grid {
+    grid-template-columns: 1fr;
+  }
+}

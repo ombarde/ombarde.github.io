@@ -1,0 +1,295 @@
+.identity-section {
+  min-height: 100vh;
+  padding: 8rem 2rem 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.identity-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.profile-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+  position: sticky;
+  top: 100px;
+}
+
+.card-header {
+  background: var(--bg-dark);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  background: var(--nvidia-green);
+  border-radius: 50%;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.status-text {
+  color: var(--nvidia-green);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.card-title {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.spec-line {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.spec-label {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.spec-value {
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.status-online {
+  color: var(--nvidia-green) !important;
+}
+
+.languages-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.cv-download-section {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+}
+
+.cv-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--nvidia-green), rgba(118, 185, 0, 0.8));
+  color: var(--bg-dark);
+  border: none;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(118, 185, 0, 0.3);
+}
+
+.cv-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(118, 185, 0, 0.5);
+}
+
+.cv-download-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(118, 185, 0, 0.4);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+.btn-text {
+  letter-spacing: 0.5px;
+}
+
+.language-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.lang-toggle {
+  padding: 0.5rem 1rem;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  font-size: 0.85rem;
+}
+
+.lang-toggle.active {
+  border-color: var(--nvidia-green);
+  color: var(--nvidia-green);
+}
+
+.lang-toggle.booting {
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.lang-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(118, 185, 0, 0.2);
+}
+
+.lang-detail {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.booting-dot {
+  margin-left: 0.25rem;
+  animation: blink 1s infinite;
+}
+
+.narrative-text {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.intro-text {
+  font-size: 1.5rem;
+  color: var(--nvidia-green);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.narrative-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.highlight {
+  color: var(--text-primary);
+  font-weight: 500;
+  padding-left: 1rem;
+  border-left: 3px solid var(--nvidia-green);
+}
+
+@media (max-width: 1024px) {
+  .identity-section {
+    padding: 7rem 1.5rem 3rem;
+  }
+
+  .identity-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .profile-card {
+    position: static;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .identity-section {
+    padding: 6rem 1rem 3rem;
+    min-height: auto;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .intro-text {
+    font-size: 1.2rem;
+  }
+  
+  .narrative-text p {
+    font-size: 1rem;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .spec-line {
+    margin: 0.75rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .identity-section {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .language-toggles {
+    gap: 0.4rem;
+  }
+
+  .lang-toggle {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .cv-download-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
+}

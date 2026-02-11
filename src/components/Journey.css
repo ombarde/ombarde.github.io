@@ -1,0 +1,224 @@
+.journey-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar-container {
+  margin: 3rem 0 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--nvidia-green), var(--accent-green-dark));
+  transition: width 0.1s ease;
+}
+
+.progress-label {
+  text-align: center;
+  color: var(--text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.epoch-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.epoch-card:hover {
+  border-color: var(--nvidia-green);
+  box-shadow: 0 8px 24px rgba(118, 185, 0, 0.2);
+}
+
+.epoch-card.active {
+  border-color: var(--nvidia-green);
+  background: rgba(118, 185, 0, 0.05);
+}
+
+.epoch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.epoch-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--nvidia-green);
+}
+
+.epoch-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.epoch-title {
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.epoch-description {
+  font-size: 1.2rem;
+  color: var(--nvidia-green);
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.epoch-details {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.epoch-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--nvidia-green);
+  color: var(--bg-darker);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.background-shift {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.noise-pattern,
+.clean-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.05;
+}
+
+.noise-pattern {
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(118, 185, 0, 0.1) 2px, rgba(118, 185, 0, 0.1) 4px);
+}
+
+.clean-pattern {
+  background: radial-gradient(circle, rgba(118, 185, 0, 0.1) 0%, transparent 70%);
+}
+
+@media (max-width: 1024px) {
+  .journey-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .progress-bar-container {
+    margin: 2.5rem 0 3rem;
+  }
+
+  .timeline {
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .journey-section {
+    padding: 4rem 1rem;
+    min-height: auto;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .epoch-card {
+    padding: 1.5rem;
+  }
+  
+  .epoch-title {
+    font-size: 1.5rem;
+  }
+  
+  .epoch-description {
+    font-size: 1rem;
+  }
+
+  .progress-bar-container {
+    margin: 2rem 0 2.5rem;
+  }
+
+  .timeline {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .journey-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .epoch-card {
+    padding: 1.25rem;
+  }
+
+  .epoch-title {
+    font-size: 1.3rem;
+  }
+
+  .epoch-description {
+    font-size: 0.95rem;
+  }
+
+  .epoch-details {
+    font-size: 0.9rem;
+  }
+
+  .epoch-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

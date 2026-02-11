@@ -1,0 +1,107 @@
+.boot-sequence {
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-darker);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.boot-content {
+  z-index: 2;
+  text-align: center;
+}
+
+.boot-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  color: var(--nvidia-green);
+  line-height: 2;
+  min-height: 200px;
+}
+
+.boot-line {
+  margin: 0.5rem 0;
+}
+
+.cursor {
+  color: var(--nvidia-green);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.enter-button {
+  margin-top: 3rem;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  border: 2px solid var(--nvidia-green);
+  color: var(--nvidia-green);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.enter-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--nvidia-green);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.enter-button:hover {
+  color: var(--bg-darker);
+}
+
+.enter-button:hover::before {
+  left: 0;
+}
+
+.gpu-hum {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    var(--nvidia-green) 20%, 
+    var(--nvidia-green) 80%, 
+    transparent
+  );
+  opacity: 0.3;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@media (max-width: 768px) {
+  .boot-text {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .enter-button {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+  }
+}

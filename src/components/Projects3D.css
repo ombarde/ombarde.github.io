@@ -1,0 +1,200 @@
+.projects-3d-section {
+  min-height: 100vh;
+  padding: 6rem 2rem;
+  background: var(--bg-dark);
+}
+
+.projects-grid-3d {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.project-card-3d {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-card-3d:hover {
+  border-color: var(--nvidia-green);
+  box-shadow: 0 8px 24px rgba(118, 185, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.project-card-3d.active {
+  border-color: var(--nvidia-green);
+  background: rgba(118, 185, 0, 0.05);
+}
+
+.card-header-3d {
+  margin-bottom: 1.5rem;
+}
+
+.project-title-3d {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.project-subtitle-3d {
+  font-size: 1rem;
+  color: var(--nvidia-green);
+  font-style: italic;
+}
+
+.simulation-container {
+  width: 100%;
+  height: 300px;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-darker);
+}
+
+.simulation-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.card-footer-3d {
+  margin-top: 1rem;
+}
+
+.metrics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.metrics-row span {
+  background: var(--bg-dark);
+  border-radius: 4px;
+  padding: 0.35rem 0.6rem;
+}
+
+.simulation-meta {
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+.simulation-badge {
+  padding: 0.4rem 0.9rem;
+  background: var(--nvidia-green);
+  color: var(--bg-darker);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  display: inline-block;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  gap: 1rem;
+  z-index: 5;
+}
+
+.overlay-section h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--nvidia-green);
+  margin-bottom: 0.25rem;
+}
+
+.overlay-section p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .projects-3d-section {
+    padding: 5rem 1.5rem;
+  }
+
+  .projects-grid-3d {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-3d-section {
+    padding: 4rem 1rem;
+    min-height: auto;
+  }
+  
+  .projects-grid-3d {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .simulation-container {
+    height: 200px;
+  }
+
+  .project-title-3d {
+    font-size: 1.3rem;
+  }
+
+  .project-subtitle-3d {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-3d-section {
+    padding: 3.5rem 1rem;
+  }
+
+  .project-card-3d {
+    padding: 1.25rem;
+  }
+
+  .projects-grid-3d {
+    margin-top: 2.5rem;
+    gap: 1.25rem;
+  }
+
+  .metrics-row {
+    gap: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .simulation-container {
+    height: 180px;
+  }
+
+  .project-title-3d {
+    font-size: 1.2rem;
+  }
+
+  .simulation-badge {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.75rem;
+  }
+}
