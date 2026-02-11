@@ -96,7 +96,18 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
   const canvasRef = useRef(null)
   const animationRef = useRef(null)
   const [hovered, setHovered] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
   const isRunning = true // idle mode: always running
+
+  // Detect if device supports touch
+  useEffect(() => {
+    const isTouchSupported = () => {
+      return (('ontouchstart' in window) ||
+              (navigator.maxTouchPoints > 0) ||
+              (navigator.msMaxTouchPoints > 0))
+    }
+    setIsTouchDevice(isTouchSupported())
+  }, [])
 
   useEffect(() => {
     if (!isRunning || !canvasRef.current) return
@@ -106,14 +117,22 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
 
     const resize = () => {
       const dpr = Math.min(2, window.devicePixelRatio || 1)
-      const w = canvas.offsetWidth
-      const h = canvas.offsetHeight
+      let w = canvas.offsetWidth
+      let h = canvas.offsetHeight
+
+      // Ensure minimum dimensions for mobile
+      w = Math.max(w, 100)
+      h = Math.max(h, 100)
+
       canvas.width = Math.floor(w * dpr)
       canvas.height = Math.floor(h * dpr)
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
+    // Initial resize with a small delay to ensure DOM is ready
     resize()
+    setTimeout(resize, 0)
+
     const ro = new ResizeObserver(() => resize())
     ro.observe(canvas)
 
@@ -129,11 +148,15 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
           return
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        
+
         // Draw blurred background (stylized video)
         ctx.fillStyle = 'rgba(10, 10, 10, 0.8)'
         ctx.fillRect(0, 0, canvas.width, canvas.height)
-        
+
+        // Responsive sizing
+        const isMobile = canvas.width < 400
+        const fontSize = isMobile ? 11 : 16
+
         // Draw road
         ctx.strokeStyle = '#333'
         ctx.lineWidth = 2
@@ -159,17 +182,18 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
 
         boxes.forEach((box, idx) => {
           box.x += box.speed
-          
+
           // Draw bounding box
           ctx.strokeStyle = box.speedValue > 60 ? '#ff4444' : '#76b900'
           ctx.lineWidth = 2
           ctx.strokeRect(box.x, box.y, box.width, box.height)
-          
+
           // Draw speed text
           ctx.fillStyle = box.speedValue > 60 ? '#ff4444' : '#76b900'
-          ctx.font = 'bold 16px JetBrains Mono'
-          ctx.fillText(`${box.speedValue} km/h`, box.x, box.y - 5)
-          
+          ctx.font = `bold ${fontSize}px JetBrains Mono`
+          ctx.textAlign = 'left'
+          ctx.fillText(`${box.speedValue} km/h`, box.x + 5, box.y - 5)
+
           // Warning flash
           if (box.speedValue > 60 && frameCount % 30 < 15) {
             ctx.fillStyle = 'rgba(255, 68, 68, 0.2)'
@@ -194,6 +218,10 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
       animate()
     } else if (project.simulation === 'dock') {
       // Dock management simulation
+      const isMobile = canvas.width < 400
+      const zoneRadius = isMobile ? 25 : 40
+      const fontSize = isMobile ? 9 : 12
+
       const zones = [
         { id: 1, x: canvas.width * 0.2, y: canvas.height * 0.3, occupied: false, timer: 0 },
         { id: 2, x: canvas.width * 0.5, y: canvas.height * 0.3, occupied: true, timer: 45 },
@@ -211,7 +239,7 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
           return
         }
         ctx.clearRect(0, 0, canvas.width, canvas.height)
-        
+
         // Background
         ctx.fillStyle = 'rgba(10, 10, 10, 0.8)'
         ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -222,17 +250,18 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
           ctx.lineWidth = zone.occupied ? 3 : 1
           ctx.fillStyle = zone.occupied ? 'rgba(118, 185, 0, 0.1)' : 'transparent'
           ctx.beginPath()
-          ctx.arc(zone.x, zone.y, 40, 0, Math.PI * 2)
+          ctx.arc(zone.x, zone.y, zoneRadius, 0, Math.PI * 2)
           ctx.fill()
           ctx.stroke()
 
           // Draw timer
           if (zone.occupied) {
             ctx.fillStyle = '#76b900'
-            ctx.font = '12px JetBrains Mono'
+            ctx.font = `bold ${fontSize}px JetBrains Mono`
             ctx.textAlign = 'center'
-            ctx.fillText(`${zone.timer}s`, zone.x, zone.y + 5)
-            
+            ctx.textBaseline = 'middle'
+            ctx.fillText(`${zone.timer}s`, zone.x, zone.y + 2)
+
             // Update timer
             if (frameCount % 60 === 0) {
               zone.timer++
@@ -244,7 +273,7 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
             ctx.shadowBlur = 20
             ctx.shadowColor = '#76b900'
             ctx.beginPath()
-            ctx.arc(zone.x, zone.y, 40, 0, Math.PI * 2)
+            ctx.arc(zone.x, zone.y, zoneRadius, 0, Math.PI * 2)
             ctx.stroke()
             ctx.shadowBlur = 0
           }
@@ -278,35 +307,102 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
         ctx.fillStyle = 'rgba(10, 10, 10, 0.9)'
         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
+        // Responsive sizing based on canvas width - better mobile scaling
+        const isUltraMobile = canvas.width < 320
+        const isMobile = canvas.width < 400
+
+        let fontSize, smallFontSize, boxWidth, boxHeight, boxGap, barHeight
+
+        if (isUltraMobile) {
+          fontSize = 9
+          smallFontSize = 7
+          boxWidth = 28
+          boxHeight = 12
+          boxGap = 25
+          barHeight = 12
+        } else if (isMobile) {
+          fontSize = 10
+          smallFontSize = 8
+          boxWidth = 40
+          boxHeight = 14
+          boxGap = 35
+          barHeight = 14
+        } else {
+          fontSize = 14
+          smallFontSize = 11
+          boxWidth = 60
+          boxHeight = 20
+          boxGap = 80
+          barHeight = 20
+        }
+
         // Throughput bar
-        const baseY = canvas.height * 0.7
-        const maxWidth = canvas.width * 0.7
+        const baseY = canvas.height * 0.65
+        const maxWidth = Math.max(100, Math.min(canvas.width * 0.7, canvas.width - 30))
         const load = 0.5 + 0.4 * Math.sin(frame / 40)
         const width = maxWidth * load
+        const startX = Math.max(10, (canvas.width - maxWidth) / 2)
 
         ctx.fillStyle = '#333'
-        ctx.fillRect(canvas.width * 0.15, baseY - 20, maxWidth, 20)
+        ctx.fillRect(startX, baseY - barHeight / 2, maxWidth, barHeight)
         ctx.fillStyle = '#76b900'
-        ctx.fillRect(canvas.width * 0.15, baseY - 20, width, 20)
+        ctx.fillRect(startX, baseY - barHeight / 2, width, barHeight)
 
         ctx.fillStyle = '#76b900'
-        ctx.font = '14px JetBrains Mono'
-        ctx.fillText('Throughput', canvas.width * 0.15, baseY - 30)
+        ctx.font = `bold ${fontSize}px JetBrains Mono`
+        ctx.textAlign = 'left'
+        ctx.fillText('Throughput', startX, baseY - barHeight - 8)
 
         // Precision switches
         const precisions = ['FP32', 'FP16', 'INT8']
-        precisions.forEach((p, i) => {
-          const active = (frame / 120) % precisions.length < i + 1 && (frame / 120) % precisions.length >= i
-          ctx.strokeStyle = active ? '#76b900' : '#555'
-          ctx.lineWidth = active ? 2 : 1
-          ctx.strokeRect(canvas.width * 0.15 + i * 80, baseY - 70, 60, 20)
-          ctx.fillStyle = active ? '#76b900' : '#888'
-          ctx.fillText(p, canvas.width * 0.15 + i * 80 + 5, baseY - 55)
-        })
+        const precisionY = baseY - 50
+        let totalBoxWidth = precisions.length * boxWidth + (precisions.length - 1) * (boxGap - boxWidth)
+        let precisionStartX = Math.max(10, (canvas.width - totalBoxWidth) / 2)
+
+        // Ensure boxes don't overflow on very small screens
+        if (precisionStartX < 10 || totalBoxWidth > canvas.width - 20) {
+          precisionStartX = 10
+          const availableWidth = canvas.width - 20
+          const scaledBoxWidth = Math.max(20, Math.floor((availableWidth - 10) / 3))
+          const scaledBoxGap = Math.max(20, Math.floor(availableWidth / 3))
+
+          precisions.forEach((p, i) => {
+            const active = (frame / 120) % precisions.length < i + 1 && (frame / 120) % precisions.length >= i
+            const boxX = precisionStartX + i * scaledBoxGap
+
+            ctx.strokeStyle = active ? '#76b900' : '#555'
+            ctx.lineWidth = active ? 2 : 1
+            ctx.strokeRect(boxX, precisionY, scaledBoxWidth, boxHeight)
+
+            ctx.fillStyle = active ? '#76b900' : '#888'
+            ctx.font = `bold ${smallFontSize}px JetBrains Mono`
+            ctx.textAlign = 'center'
+            ctx.textBaseline = 'middle'
+            ctx.fillText(p, boxX + scaledBoxWidth / 2, precisionY + boxHeight / 2)
+          })
+        } else {
+          precisions.forEach((p, i) => {
+            const active = (frame / 120) % precisions.length < i + 1 && (frame / 120) % precisions.length >= i
+            const boxX = precisionStartX + i * boxGap
+
+            ctx.strokeStyle = active ? '#76b900' : '#555'
+            ctx.lineWidth = active ? 2 : 1
+            ctx.strokeRect(boxX, precisionY, boxWidth, boxHeight)
+
+            ctx.fillStyle = active ? '#76b900' : '#888'
+            ctx.font = `bold ${smallFontSize}px JetBrains Mono`
+            ctx.textAlign = 'center'
+            ctx.textBaseline = 'middle'
+            ctx.fillText(p, boxX + boxWidth / 2, precisionY + boxHeight / 2)
+          })
+        }
 
         // Status text
         ctx.fillStyle = '#76b900'
-        ctx.fillText('Result: ACCEPTED', canvas.width * 0.15, baseY + 20)
+        ctx.font = `${fontSize}px JetBrains Mono`
+        ctx.textAlign = 'left'
+        ctx.textBaseline = 'top'
+        ctx.fillText('Result: ACCEPTED', startX, baseY + barHeight + 20)
 
         frame++
         animationRef.current = requestAnimationFrame(animate)
@@ -330,28 +426,40 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
         ctx.fillStyle = 'rgba(10, 10, 10, 0.9)'
         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
+        // Responsive sizing
+        const isMobile = canvas.width < 400
+        const fontSize = isMobile ? 11 : 14
+        const smallFontSize = isMobile ? 9 : 12
+        const padding = isMobile ? 12 : 20
+
         // Incoming text stream
         const idx = Math.floor(frame / 120) % texts.length
         ctx.fillStyle = '#ffffff'
-        ctx.font = '14px JetBrains Mono'
-        ctx.fillText(texts[idx], 20, canvas.height * 0.3)
+        ctx.font = `bold ${fontSize}px JetBrains Mono`
+        ctx.textAlign = 'left'
+        ctx.fillText(texts[idx], padding, canvas.height * 0.25)
 
         // Language tag
         ctx.fillStyle = '#76b900'
-        ctx.fillText(`Lang: ${langs[idx]}`, 20, canvas.height * 0.3 + 24)
+        ctx.font = `${smallFontSize}px JetBrains Mono`
+        ctx.fillText(`Lang: ${langs[idx]}`, padding, canvas.height * 0.25 + 20)
 
         // Sentiment gauge
         const isPositive = sentiments[idx] === 'POS'
+        const gaugeMaxWidth = Math.min(canvas.width * 0.6, canvas.width - padding * 2)
+        const gaugeY = canvas.height * 0.55
+
         ctx.fillStyle = '#333'
-        ctx.fillRect(20, canvas.height * 0.6, canvas.width * 0.6, 16)
+        ctx.fillRect(padding, gaugeY, gaugeMaxWidth, 14)
         ctx.fillStyle = isPositive ? '#4ade80' : '#f97373'
-        const gaugeWidth = (canvas.width * 0.6) * (isPositive ? 0.7 : 0.3)
-        ctx.fillRect(20, canvas.height * 0.6, gaugeWidth, 16)
+        const gaugeWidth = gaugeMaxWidth * (isPositive ? 0.7 : 0.3)
+        ctx.fillRect(padding, gaugeY, gaugeWidth, 14)
 
         ctx.fillStyle = '#76b900'
-        ctx.fillText(`Sentiment: ${isPositive ? 'Positive' : 'Negative'}`, 20, canvas.height * 0.6 - 8)
-        ctx.fillText('Accuracy: 90%+', 20, canvas.height * 0.6 + 40)
-        ctx.fillText('Deployment: Cloud Run', 20, canvas.height * 0.6 + 60)
+        ctx.font = `bold ${smallFontSize}px JetBrains Mono`
+        ctx.fillText(`Sentiment: ${isPositive ? 'Positive' : 'Negative'}`, padding, gaugeY - 8)
+        ctx.fillText('Accuracy: 90%+', padding, gaugeY + 28)
+        ctx.fillText('Deployment: Cloud Run', padding, gaugeY + 44)
 
         frame++
         animationRef.current = requestAnimationFrame(animate)
@@ -374,14 +482,14 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       onClick={onActivate}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => !isTouchDevice && setHovered(true)}
+      onMouseLeave={() => !isTouchDevice && setHovered(false)}
     >
       <div className="card-header-3d">
         <h3 className="project-title-3d">{project.title}</h3>
         <p className="project-subtitle-3d">{project.subtitle}</p>
       </div>
-      
+
       <div className="simulation-container">
         <canvas ref={canvasRef} className="simulation-canvas"></canvas>
       </div>
@@ -422,7 +530,7 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
         </div>
       </div>
 
-      {hovered && (
+      {(hovered || (isTouchDevice && isActive)) && (
         <div className="project-overlay">
           <div className="overlay-section">
             <h4>Problem</h4>

@@ -30,6 +30,9 @@ const BootSequence = ({ onComplete }) => {
     let charIndex = 0
     setDisplayText('')
 
+    const typingSpeed = 50
+    const postDelay = currentLine === bootLines.length - 1 ? 4000 : 1000
+
     const typeInterval = setInterval(() => {
       if (charIndex < line.length) {
         setDisplayText(line.substring(0, charIndex + 1))
@@ -38,9 +41,9 @@ const BootSequence = ({ onComplete }) => {
         clearInterval(typeInterval)
         setTimeout(() => {
           setCurrentLine(prev => prev + 1)
-        }, 1000)
+        }, postDelay)
       }
-    }, 50)
+    }, typingSpeed)
 
     return () => clearInterval(typeInterval)
   }, [currentLine])
