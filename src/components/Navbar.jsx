@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <div className="nav-logo" onClick={handleNvidiaClick}>
-          <span className="logo-text">Om_Barde.ai</span>
+          <span className="logo-text">System: Oms</span>
           {gpuSpike && <div className="gpu-spike">⚡ GPU SPIKE ⚡</div>}
         </div>
         <div className="nav-links">

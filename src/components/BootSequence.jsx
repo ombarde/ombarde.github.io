@@ -8,7 +8,7 @@ const BootSequence = ({ onComplete }) => {
   const [showCTA, setShowCTA] = useState(false)
 
   const bootLines = [
-    'Initializing Om_Barde.ai',
+    'Initializing System: Oms',
     'Loading Vision Modules...',
     'GPU Online.',
     '',

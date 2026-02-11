@@ -12,7 +12,7 @@ const GPUChip = ({ onComplete }) => {
   const [cameraZoom, setCameraZoom] = useState(false)
 
   const bootTexts = [
-    'Initializing Om_Barde.ai',
+    'Initializing System: Oms',
     'Loading Vision Modules...',
     'Multi-GPU Scaling: ONLINE',
     'GPU Online.',
@@ -154,7 +154,7 @@ const BootSequence3D = ({ onComplete }) => {
   const [showSubtitle, setShowSubtitle] = useState(false)
   const [enterLoading, setEnterLoading] = useState(false)
   const enterLines = [
-    'Initializing Om_Barde.ai',
+    'Initializing System: Oms',
     'Loading Vision Modules...',
     'GPU Online.'
   ]
