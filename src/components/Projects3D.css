@@ -174,9 +174,9 @@
   }
 
   .simulation-container {
-    height: 220px;
+    height: 280px;
     margin: 1rem 0;
-    min-height: 180px;
+    min-height: 240px;
   }
 
   .project-title-3d {
@@ -250,9 +250,9 @@
   }
 
   .simulation-container {
-    height: 240px;
+    height: 280px;
     margin: 0.75rem 0;
-    min-height: 180px;
+    min-height: 240px;
   }
 
   .project-title-3d {
@@ -297,8 +297,8 @@
 
 @media (max-width: 360px) {
   .simulation-container {
-    height: 220px;
-    min-height: 160px;
+    height: 270px;
+    min-height: 230px;
     margin: 0.5rem 0;
   }
 

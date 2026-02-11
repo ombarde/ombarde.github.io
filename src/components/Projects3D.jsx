@@ -307,102 +307,94 @@ const ProjectCard = ({ project, isActive, onActivate }) => {
         ctx.fillStyle = 'rgba(10, 10, 10, 0.9)'
         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-        // Responsive sizing based on canvas width - better mobile scaling
+        // Responsive sizing based on canvas dimensions
         const isUltraMobile = canvas.width < 320
         const isMobile = canvas.width < 400
 
-        let fontSize, smallFontSize, boxWidth, boxHeight, boxGap, barHeight
+        let fontSize, smallFontSize, barHeight
 
         if (isUltraMobile) {
-          fontSize = 9
-          smallFontSize = 7
-          boxWidth = 28
-          boxHeight = 12
-          boxGap = 25
-          barHeight = 12
+          fontSize = 7
+          smallFontSize = 5
+          barHeight = 7
         } else if (isMobile) {
-          fontSize = 10
-          smallFontSize = 8
-          boxWidth = 40
-          boxHeight = 14
-          boxGap = 35
-          barHeight = 14
+          fontSize = 8
+          smallFontSize = 6
+          barHeight = 9
         } else {
-          fontSize = 14
-          smallFontSize = 11
-          boxWidth = 60
-          boxHeight = 20
-          boxGap = 80
-          barHeight = 20
+          fontSize = 11
+          smallFontSize = 8
+          barHeight = 13
         }
 
-        // Throughput bar
-        const baseY = canvas.height * 0.65
-        const maxWidth = Math.max(100, Math.min(canvas.width * 0.7, canvas.width - 30))
-        const load = 0.5 + 0.4 * Math.sin(frame / 40)
-        const width = maxWidth * load
-        const startX = Math.max(10, (canvas.width - maxWidth) / 2)
+        const padding = 8
+        const contentWidth = Math.max(80, canvas.width - padding * 2)
+        const startX = (canvas.width - contentWidth) / 2
+        const boxHeight = fontSize + 1
 
-        ctx.fillStyle = '#333'
-        ctx.fillRect(startX, baseY - barHeight / 2, maxWidth, barHeight)
-        ctx.fillStyle = '#76b900'
-        ctx.fillRect(startX, baseY - barHeight / 2, width, barHeight)
-
-        ctx.fillStyle = '#76b900'
-        ctx.font = `bold ${fontSize}px JetBrains Mono`
-        ctx.textAlign = 'left'
-        ctx.fillText('Throughput', startX, baseY - barHeight - 8)
+        // Tight spacing to fit everything
+        let currentY = padding
 
         // Precision switches
         const precisions = ['FP32', 'FP16', 'INT8']
-        const precisionY = baseY - 50
-        let totalBoxWidth = precisions.length * boxWidth + (precisions.length - 1) * (boxGap - boxWidth)
-        let precisionStartX = Math.max(10, (canvas.width - totalBoxWidth) / 2)
+        const precisionY = currentY
+        const boxWidth = Math.max(10, Math.floor(contentWidth / 5))
 
-        // Ensure boxes don't overflow on very small screens
-        if (precisionStartX < 10 || totalBoxWidth > canvas.width - 20) {
-          precisionStartX = 10
-          const availableWidth = canvas.width - 20
-          const scaledBoxWidth = Math.max(20, Math.floor((availableWidth - 10) / 3))
-          const scaledBoxGap = Math.max(20, Math.floor(availableWidth / 3))
+        precisions.forEach((p, i) => {
+          const active = (frame / 120) % precisions.length < i + 1 && (frame / 120) % precisions.length >= i
+          const boxX = startX + i * (boxWidth + 2)
 
-          precisions.forEach((p, i) => {
-            const active = (frame / 120) % precisions.length < i + 1 && (frame / 120) % precisions.length >= i
-            const boxX = precisionStartX + i * scaledBoxGap
+          ctx.strokeStyle = active ? '#76b900' : '#555'
+          ctx.lineWidth = active ? 2 : 1
+          ctx.strokeRect(boxX, precisionY, boxWidth, boxHeight)
 
-            ctx.strokeStyle = active ? '#76b900' : '#555'
-            ctx.lineWidth = active ? 2 : 1
-            ctx.strokeRect(boxX, precisionY, scaledBoxWidth, boxHeight)
+          ctx.fillStyle = active ? '#76b900' : '#aaa'
+          ctx.font = `bold ${smallFontSize}px JetBrains Mono`
+          ctx.textAlign = 'center'
+          ctx.textBaseline = 'middle'
+          const textX = boxX + boxWidth / 2
+          const textY = precisionY + boxHeight / 2
+          if (textX >= 0 && textX <= canvas.width && textY >= 0 && textY <= canvas.height) {
+            ctx.fillText(p, textX, textY)
+          }
+        })
 
-            ctx.fillStyle = active ? '#76b900' : '#888'
-            ctx.font = `bold ${smallFontSize}px JetBrains Mono`
-            ctx.textAlign = 'center'
-            ctx.textBaseline = 'middle'
-            ctx.fillText(p, boxX + scaledBoxWidth / 2, precisionY + boxHeight / 2)
-          })
-        } else {
-          precisions.forEach((p, i) => {
-            const active = (frame / 120) % precisions.length < i + 1 && (frame / 120) % precisions.length >= i
-            const boxX = precisionStartX + i * boxGap
+        currentY += boxHeight + 4
 
-            ctx.strokeStyle = active ? '#76b900' : '#555'
-            ctx.lineWidth = active ? 2 : 1
-            ctx.strokeRect(boxX, precisionY, boxWidth, boxHeight)
-
-            ctx.fillStyle = active ? '#76b900' : '#888'
-            ctx.font = `bold ${smallFontSize}px JetBrains Mono`
-            ctx.textAlign = 'center'
-            ctx.textBaseline = 'middle'
-            ctx.fillText(p, boxX + boxWidth / 2, precisionY + boxHeight / 2)
-          })
+        // Throughput label
+        const labelY = currentY
+        ctx.fillStyle = '#76b900'
+        ctx.font = `bold ${fontSize}px JetBrains Mono`
+        ctx.textAlign = 'left'
+        ctx.textBaseline = 'top'
+        if (labelY >= 0 && labelY <= canvas.height) {
+          ctx.fillText('Throughput', startX, labelY)
         }
 
-        // Status text
+        currentY += fontSize + 2
+
+        // Throughput bar
+        const barY = currentY
+        const maxBarWidth = contentWidth
+        const load = 0.5 + 0.4 * Math.sin(frame / 40)
+        const barFillWidth = maxBarWidth * load
+
+        ctx.fillStyle = '#333'
+        ctx.fillRect(startX, barY, maxBarWidth, barHeight)
+        ctx.fillStyle = '#76b900'
+        ctx.fillRect(startX, barY, barFillWidth, barHeight)
+
+        currentY += barHeight + 4
+
+        // Result status
+        const statusY = currentY
         ctx.fillStyle = '#76b900'
         ctx.font = `${fontSize}px JetBrains Mono`
         ctx.textAlign = 'left'
         ctx.textBaseline = 'top'
-        ctx.fillText('Result: ACCEPTED', startX, baseY + barHeight + 20)
+        if (statusY >= 0 && statusY <= canvas.height) {
+          ctx.fillText('Result: ACCEPTED', startX, statusY)
+        }
 
         frame++
         animationRef.current = requestAnimationFrame(animate)
